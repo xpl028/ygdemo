@@ -1,0 +1,8 @@
+<button
+  type="primary"
+  plain
+  bindgetuserinfo="handleGetUser" 
+  open-type="getUserInfo"
+>
+  登录
+</button>

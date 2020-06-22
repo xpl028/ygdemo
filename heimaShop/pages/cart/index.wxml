@@ -1,0 +1,76 @@
+<view class="revice_address_row">
+  <view class="address_btn" wx:if="{{!address.userName}}">
+    <button bindtap="handleChooseAddress" type="primary" plain>获取收货地址</button>
+  </view>
+  <view wx:else class="user_info_row">
+    <view class="user_info">
+      <view>收件人：{{address.userName}}</view>
+      <view>{{address.all}}</view>
+    </view>
+    <view class="user_phone">{{address.telNumber}}</view>
+  </view>
+</view>
+
+<view class="cart_content">
+  <view class="cart_title">购物车</view>
+  <view class="cart_main">
+    <block wx:if="{{!!cart.length}}">
+      <view
+        class="cart_item"
+        wx:for="{{cart}}"
+        wx:key="goods_id"
+      >
+        <view class="cart_chk_wrap">
+          <checkbox-group data-id="{{item.goods_id}}" bindchange="handleChange">
+            <checkbox checked="{{item.checked}}"></checkbox>
+          </checkbox-group>
+        </view>
+        <navigator class="cart_img_wrap" url="">
+          <image src="{{item.goods_small_logo}}" mode="widthFix">
+          </image>
+        </navigator>
+        <view class="cart_info_wrap">
+          <view class="goods_name">{{item.goods_name}}</view>
+          <view class="goods_price_wrap">
+            <view class="goods_price">￥{{item.goods_price}}</view>
+            <view class="cart_num_tool">
+              <view
+                data-id="{{item.goods_id}}"
+                class="num_edit"
+                bindtap="handleEditNm"
+                data-operation="{{-1}}"
+              >-</view>
+              <view class="goods_num">{{item.num}}</view>
+              <view
+                data-id="{{item.goods_id}}"
+                class="num_edit"
+                bindtap="handleEditNm"
+                data-operation="{{1}}"
+              >+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <image mode="widthFix" src="data:image/png;base64,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"></image>
+    </block>
+  </view>
+</view>
+
+<view class="footer_tool">
+  <view class="all_chk_wrap">
+    <checkbox-group bindchange="handleItemAllChange">
+      <checkbox checked="{{allChecked}}">全选</checkbox>
+    </checkbox-group>
+  </view>
+  <view class="total_price_wrap">
+    <view class="total_price">
+      合计：<text class="total_price_text">￥{{totalPrice}}</text>
+    </view>
+    <view>包含运费</view>
+  </view>
+  <view class="order_pay_wrap" bindtap="handlePay">
+    结算({{totalNum}})
+  </view>
+</view>

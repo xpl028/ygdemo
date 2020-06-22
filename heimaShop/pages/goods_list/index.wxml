@@ -1,0 +1,25 @@
+<view>
+  <SearchInput />
+  <Tabs tabs="{{tabs}}" bindtabsItemChange="tabsItemChange">
+    <block wx:if="{{tabs[0].isActive}}">
+      <view class="first_tab">
+        <navigator
+          class="goods_item"
+          wx:for="{{goodsList}}"
+          wx:key="goods_id"
+          url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
+        >
+          <view class="goods_img">
+            <image mode="widthFix" src="{{item.goods_small_logo || 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAC0CAMAAAB4+cOfAAAAKlBMVEXw8PDg4ODu7u7h4eHq6urk5OTz8/PZ2dns7Ozd3d3n5+fY2Nj29vbU1NTkhN11AAAFGklEQVR4nO2d63arOAxGfZNv0Pd/3ZFsIAnB0zLjM12jfPsHq6FpVr1rybIx1BgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPwb4iR+ux2TiS6HOThNbqKpvkzCklNjJjpf7DSKzUrMRCNepvUYNqOlz1TpLxRmZJlcpc/Qb7doDk4CIMwaldqnqQimyH/kUqe1JIapH/eLRImkiX9i55XEUhPj5n0exAyAmAEQMwBiBkDMAIgZoFxMNC5nZ/5BeaNaTDSVpLSnel+NZjFc1pd9DSHc/TzNYmo51mdKqTc/T6+YGF6Wre7OCPWKcec1uXvrTmrFtNcvXYYgpvG+jHurytEqJub3hfFwp8toFWPCu5hb6RdiGtX604UkrWLihZhxKEnFU+xLfaxWTH5PvoMV4WioSyw+PNRoFWPM22VJP/hBR48C2eddjVox73XMdYo5X9ilrV+pFWMMvU4JrjsMh9yrQE41LQvrFRPdc5MHV6LlutqZloWjXjHyR39OHpeBdI63/d2Bc5ReMZHLk7ZvoVi6WqmKAy+ihoJiMRJOoRLR9f6oeMpCF3b+k9/8DzNYDI/H4e077hsvusWM3+/sN14+U8xVZQwx11OpDxNzvWd3OBx9iphocs3n5PvtcKRfjIw8p+WEfXvnJ4tpBZ49LSfc2A6sVEw04TBQ6Iint1njh4mJMfuXOeQ2KbiaNX6SmJ5cXlrZ5sym/tyLQjF7cjm10+efDdNaxTwnl1On8Te06BOTf1alfJaYeB1FHy9G7iiYd8+SIjF1VhRpEzMXiIEYiIGYA4gZADEDIGYAxAyAmAEQM+CPiFFx3/UPLi3eFaPihnTZ0CL4KXQzE2+Y+036Vdc5YryiDvPD664/DyQVqbfTN1DN0WIVeeEETP7eevcA7yn/dmPmEo2bwmAXFgAAAHCTx5aHeyOL8nEoOinlWyMz3aleQ7uXP3glE6QzXPt+pVJSrXxI8kiHmPmLJOeEhaK4e31KovxgtEmOddHyvMQT1S+WPPlsk2zXbHce8WuispDgg4hZfBVztVHEiIm+yLEmpWLWUGKt67q2fuD6hhlmpbLuT+plMXldTUqea3+31tLe5It8NySj8HG+ssXuK/kl2VJpkShJ+52z0ZbHm0RM+CqhhrLkSLuY7LKjJbgsz+JRBk8jiVIhG7idNflwbD4r9ugG0aVAiUrlzpLjLoaWnoTaQc1SzANOIcW64Aqtpi812d7WZcu+rELEBI6lJbnVHGJKFlw//nIr5uNl+OEoolT7wM35uCXdVBbf0q/rodT2dcp+xT3H2LJ2VOYYk2uQqFkpGe4STUzLvblw+9cj+cpYtPjoLIed33JM6oNU1ddbGtxwT85xz8jZH6tNHF75GIg5lKh4F7jDONkm3dNyj7iUvm49NOT/Q/TLXrhxl9hPhiU8i1m48c64yk5i7KHkUnt3zItWMTb1/Jm5vt3PmaVwhdLEyF0FIobHrkKBM3FPviykx51TK+boMXax2ymXuGzbxCSKrfEuV+IMU7Y6hkfrXgzq7TE+bY9Tz2UTU3lYjn0W1DqGjEpbFcxzxlXE8Kle52gW88gxIoYH7S9rmpIk56Tkd8tjAsmje5H6b5s8ahaTqFO3HONrr0uCXGEk1xrv6YAHbnbit1pXrxiT8/EI/T5a7+Xa0397Cc//PMa9Pm5S2QWlJ+LFV8O3fPcKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPh7/gLfCkBS+NmGOgAAAABJRU5ErkJggg=='}}"></image>
+          </view>
+          <view class="goods_info">
+            <view class="goods_name">{{item.goods_name}}</view>
+            <view class="goods_price">￥{{item.goods_price}}</view>
+          </view>
+        </navigator>
+      </view>
+    </block>
+    <block wx:elif="{{tabs[1].isActive}}">1</block>
+    <block wx:elif="{{tabs[2].isActive}}">2</block>
+  </Tabs>
+</view>
